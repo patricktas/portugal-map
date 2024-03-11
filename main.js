@@ -25,6 +25,11 @@ const vectorLayer = new VectorLayer({
   })
 });
 
+const view = new View({
+  center: portugalCoords,
+  zoom: 7
+});
+
 const map = new Map({
   target: 'map',
   layers: [
@@ -33,8 +38,22 @@ const map = new Map({
     }),
     vectorLayer,
   ],
-  view: new View({
-    center: portugalCoords,
-    zoom: 7
+  view: view
+});
+
+window.addEventListener("load", (event) => {
+  var el = document.getElementById('districts').addEventListener('click', (e) => {
+    var selected = e.target.textContent;
+    const feature = source.getFeatures().find(f => f.values_.name == selected);
+    
+    if (!feature) {
+      alert(selected + " not found");
+      return;
+    }
+
+    // const polygon = feature.getGeometry();
+    // view.fit(polygon, {padding: [170, 50, 30, 150]});
+    const polygon = feature.getGeometry();
+    view.fit(polygon, {padding: [170, 50, 30, 150]});
   })
 });

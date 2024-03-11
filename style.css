@@ -10,3 +10,16 @@ html, body {
   bottom: 0;
   width: 100%;
 }
+nav {
+  position: absolute;
+  top: 90px;
+  left: 8px;
+  z-index: 1;
+
+  background-color: white;
+  border-radius: 2px;
+  padding: 1rem;
+}
+nav li:hover {
+  cursor: pointer;
+}
