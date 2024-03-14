@@ -6,7 +6,22 @@ import {Style, Stroke, Fill} from 'ol/style';
 import * as olProj from 'ol/proj';
 import {OSM, Vector as VectorSource} from 'ol/source.js';
 import Select from 'ol/interaction/Select.js';
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { districts } from '../../../data/districts';
+
+function hexToRgbA(hex, opacity){
+  var c;
+  if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+      c= hex.substring(1).split('');
+      if(c.length== 3){
+          c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+      }
+      c= '0x'+c.join('');
+      return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',' + opacity + ')';
+  }
+  throw new Error('Bad Hex');
+}
+
 
 // Portugal Source
 const source = new VectorSource({
@@ -23,29 +38,31 @@ const view = new View({
 // Portugal Layer and Styling
 const vectorLayer = new VectorLayer({
   source: source,
-  style: new Style({
-    fill: new Fill({
-      color: 'rgba(255, 220, 97, .25)',
-    }),
-    stroke: new Stroke({
-      color: '#FDC606',
-      width: 2
+  style: (feature) => {
+    const colorCode = districts.filter(d => d.name == feature.values_.name)[0].colorCode;
+    return new Style({
+      fill: new Fill({
+        color: hexToRgbA(colorCode, .3),
     }),
   })
+  } 
 });
 
 // Highlight selected Region
 let select = new Select(
   {
-    style: new Style({
-      fill: new Fill({
-        color: 'rgba(0, 0, 0, 0)',
-      }),
-      stroke: new Stroke({
-        color: '#FDC606',
-        width: 2,
-      }),
+    style: (feature) => {
+      const colorCode = districts.filter(d => d.name == feature.values_.name)[0].colorCode;
+      return new Style({
+        fill: new Fill({
+          color: hexToRgbA(colorCode, .3),
+        }),
+        stroke: new Stroke({
+          color: hexToRgbA(colorCode, 1),
+          width: 3,
+        }),
     })
+    }
   }
 );
 

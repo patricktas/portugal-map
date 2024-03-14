@@ -1,0 +1,20 @@
+export const districts = [
+    { name: "Lisboa", districtNumber: 1, colorCode: "#DB3E87" },
+    { name: "Porto", districtNumber: 2, colorCode: "#0B9D5F" },
+    { name: "Setúbal", districtNumber: 3, colorCode: "#0BC8A7" },
+    { name: "Aveiro", districtNumber: 4, colorCode: "#5745E8" },
+    { name: "Braga", districtNumber: 5, colorCode: "#F79F5C" },
+    { name: "Faro", districtNumber: 6, colorCode: "#F8BD0F" },
+    { name: "Leiria", districtNumber: 7, colorCode: "#F95829" },
+    { name: "Santarém", districtNumber: 8, colorCode: "#2BB9D8" },
+    { name: "Coimbra", districtNumber: 9, colorCode: "#A9D82A" },
+    { name: "Viseu", districtNumber: 10, colorCode: "#DB3A86" },
+    { name: "Viana do Castelo", districtNumber: 11, colorCode: "#DB3E87" },
+    { name: "Vila Real", districtNumber: 12, colorCode: "#0B9D5F" },
+    { name: "Castelo Branco", districtNumber: 13, colorCode: "#0BC8A7" },
+    { name: "Évora", districtNumber: 14, colorCode: "#5745E8" },
+    { name: "Beja", districtNumber: 15, colorCode: "#F79F5C" },
+    { name: "Guarda", districtNumber: 16, colorCode: "#F8BD0F" },
+    { name: "Bragança", districtNumber: 17, colorCode: "#F95829" },
+    { name: "Portalegre", districtNumber: 18, colorCode: "#2BB9D8" }
+];

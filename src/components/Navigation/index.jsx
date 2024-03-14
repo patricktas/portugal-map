@@ -2,42 +2,10 @@ import React from 'react';
 
 import portugalImage from '../../../images/Image.png';
 import flagImage from '../../../images/Flag.png';
+import { districts } from '../../../data/districts';
 import styles from './styles.module.css';
 
-const districts = [
-    { name: "Lisboa", districtNumber: 1 },
-    { name: "Porto", districtNumber: 2 },
-    { name: "Setúbal", districtNumber: 3 },
-    { name: "Aveiro", districtNumber: 4 },
-    { name: "Braga", districtNumber: 5 },
-    { name: "Faro", districtNumber: 6 },
-    { name: "Leiria", districtNumber: 7 },
-    { name: "Santarém", districtNumber: 8 },
-    { name: "Coimbra", districtNumber: 9 },
-    { name: "Viseu", districtNumber: 10 },
-    { name: "Viana do Castelo", districtNumber: 11 },
-    { name: "Vila Real", districtNumber: 12 },
-    { name: "Castelo Branco", districtNumber: 13 },
-    { name: "Évora", districtNumber: 14 },
-    { name: "Beja", districtNumber: 15 },
-    { name: "Guarda", districtNumber: 16 },
-    { name: "Bragança", districtNumber: 17 },
-    { name: "Portalegre", districtNumber: 18 }
-];
-
-const colorCodes = [
-    "#DB3E87", "#0B9D5F", "#0BC8A7",
-    "#5745E8", "#F79F5C", "#F8BD0F",
-    "#F95829", "#2BB9D8", "#A9D82A",
-    "#DB3A86"
-];
-
-
 export default function Navigation(props) {
-  districts.forEach((district, index) => {
-      district.colorCode = colorCodes[index % colorCodes.length];
-  });
-
   return <div className={styles.navigation}>
       <div className={styles.cover}>
         <div className={styles.imageContainer}>
