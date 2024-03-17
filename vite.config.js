@@ -9,9 +9,3 @@ export default ({ mode }) => {
     base: '/portugal-map/'
   });
 };
-
-// export default {
-//   build: {
-//     sourcemap: true,
-//   }
-// }
