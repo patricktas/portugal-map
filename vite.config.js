@@ -1,5 +1,17 @@
-export default {
-  build: {
-    sourcemap: true,
-  }
-}
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+
+export default ({ mode }) => {
+  return defineConfig({
+    plugins: [
+      react(),
+    ],
+    base: '/portugal-map/'
+  });
+};
+
+// export default {
+//   build: {
+//     sourcemap: true,
+//   }
+// }
