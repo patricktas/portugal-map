@@ -25,7 +25,7 @@ function hexToRgbA(hex, opacity){
 
 // Portugal Source
 const source = new VectorSource({
-  url: 'data/portugal.geojson',
+  url: './portugal.geojson',
   format: new GeoJSON(),
 });
 
